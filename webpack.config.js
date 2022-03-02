@@ -116,7 +116,7 @@ if (isProduction) {
         'sass-loader?sourceMap',
       ],
     }
-);
+  );
 }
 
 module.exports = {

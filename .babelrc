@@ -1,7 +1,7 @@
 {
-  "plugins": ["transform-object-rest-spread"],
+  "plugins": [],
   "presets": [
-    "env",
-    "react"
+    "@babel/preset-react",
+    "@parcel/babel-preset-env"
   ]
 }

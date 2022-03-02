@@ -231,9 +231,9 @@ function convertPropToPixels(propName, propValue, maxScroll, offset = 0) {
   } else if (START_END_DURATION_REGEX.test(propValue)) {
     propValueInPx = getValueInPx(propValue, maxScroll);
   } else if (
-    isElement ||
-    typeof propValue === 'string' &&
-    (propValue.charCodeAt(0) < keyCodes.ZERO || propValue.charCodeAt(0) > keyCodes.NINE)
+    isElement
+    || typeof propValue === 'string'
+    && (propValue.charCodeAt(0) < keyCodes.ZERO || propValue.charCodeAt(0) > keyCodes.NINE)
   ) {
     const element = isElement ? propValue : document.querySelector(propValue);
 
@@ -321,7 +321,6 @@ function parallax(scrollPosition, start, duration, startValue, endValue, easing)
   let min = startValue;
   let max = endValue;
   const invert = startValue > endValue;
-
 
   // Safety check, if "startValue" is in the wrong format
   if (typeof startValue !== 'number') {
@@ -507,7 +506,6 @@ function getClasses(lastSegmentScrolledBy, isInSegment, parallaxData) {
 function checkIfActive(classes) {
   return classes.indexOf('Plx--active') > -1;
 }
-
 
 // Omits "keysToOmit" from "object"
 function omit(object, keysToOmit) {
@@ -782,9 +780,20 @@ export default class Plx extends Component {
     }
   }
 
+  handleResize() {
+    clearTimeout(this.resizeDebounceTimeoutID);
+    this.resizeDebounceTimeoutID = setTimeout(() => {
+      this.update();
+    }, RESIZE_DEBOUNCE_TIMEOUT);
+  }
+
+  handleScrollChange(e) {
+    this.update(e.detail.scrollPositionY);
+  }
+
   update(scrollPosition = null) {
-    const currentScrollPosition = scrollPosition === null ?
-      this.scrollManager.getScrollPosition().scrollPositionY : scrollPosition;
+    const currentScrollPosition = scrollPosition === null
+      ? this.scrollManager.getScrollPosition().scrollPositionY : scrollPosition;
 
     const newState = getNewState(
       currentScrollPosition,
@@ -796,17 +805,6 @@ export default class Plx extends Component {
     if (newState) {
       this.setState(newState);
     }
-  }
-
-  handleResize() {
-    clearTimeout(this.resizeDebounceTimeoutID);
-    this.resizeDebounceTimeoutID = setTimeout(() => {
-      this.update();
-    }, RESIZE_DEBOUNCE_TIMEOUT);
-  }
-
-  handleScrollChange(e) {
-    this.update(e.detail.scrollPositionY);
   }
 
   render() {
@@ -900,7 +898,6 @@ const parallaxDataType = PropTypes.shape({
   ]),
   name: PropTypes.string,
 });
-
 
 Plx.propTypes = {
   animateWhenNotInViewport: PropTypes.bool,

@@ -1,11 +1,11 @@
+*.log*
 .DS_STORE
-node_modules
+.cache
+.module-cache
+NOTES.md
+_nogit
 dist
 dist-docs
 docs
+node_modules
 publish-docs.sh
-.module-cache
-*.log*
-_nogit
-NOTES.md
-.cache
