@@ -1,17 +1,20 @@
 {
-  "name": "react-plx",
+  "name": "@todaypp/react-plx",
   "version": "1.3.17",
   "description": "React parallax (on scroll effects) component. Lightweight, yet powerful.",
   "private": false,
   "license": "MIT",
   "author": "Stanko",
-  "homepage": "https://github.com/Stanko/react-plx#readme",
+  "contributors": [
+    "Sumin Son <clvswft03@gmail.com>"
+  ],
+  "homepage": "https://github.com/todaypp/react-plx#readme",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/Stanko/react-plx.git"
   },
   "bugs": {
-    "url": "https://github.com/Stanko/react-plx/issues"
+    "url": "https://github.com/todaypp/react-plx/issues"
   },
   "keywords": [
     "animation",
@@ -39,6 +42,7 @@
     "lint:fix": "eslint ./source ./webpack.config.js --ext .js --ext .jsx --cache --fix",
     "postpublish": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags",
     "prepare": "yarn build",
+    "publish": "npm publish",
     "publish:all": "yarn publish && yarn publish:docs",
     "publish:docs": "sh publish-docs.sh",
     "start": "parcel docs/index.html",
@@ -81,5 +85,9 @@
     "react-dom": "^16.13.1",
     "rimraf": "^3.0.2",
     "webpack": "^5.69.1"
+  },
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
   }
 }
