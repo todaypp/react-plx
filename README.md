@@ -6,13 +6,12 @@
 React component, for creating on scroll effects aka. parallax.
 Lightweight, yet powerful.
 
-
-* **v1.0.0 introduced breaking changes**
+- **v1.0.0 introduced breaking changes**
 
   `start` and `duration` are reworked, and `end` prop is introduced.
   Check updated [parallaxData](#user-content-parallaxdata) documentation.
 
-* **v1.3.8 breaking change** - corrected typo in animation state class `Plx--bellow` -> `Plx--below`.
+- **v1.3.8 breaking change** - corrected typo in animation state class `Plx--bellow` -> `Plx--below`.
 
 [Changelog](CHANGELOG.md)
 
@@ -26,27 +25,25 @@ I would really like to see what you people have built using `Plx` and create a s
 
 Other sites using it:
 
-* [Whittle School & Studios](https://www.whittleschool.org/en/)
-* [Vapor Connoisseur](http://www.vaporconnoisseur.com/about)
-* [Toyota Trucks](https://www.exploretoyotatrucks.com)
-* [David Yurman](https://www.davidyurman.com/products/mens/mens-bands.html)
-* [Alex Widner's portfolio](http://alex-widner.surge.sh/) I love this one as Alex used Plx for pretty much everything in a very unexpected and creative way.
-* [Ekaya Store](https://www.ekaya.in/)
-* [V!RTL's personal site](https://v1rtl.site)
-* [Antonio Cosentino personal website](https://antoniocosentino.com/) - he even mentions Plx in one of the [project articles](https://antoniocosentino.com/projects/ac-2020)
+- [Whittle School & Studios](https://www.whittleschool.org/en/)
+- [Vapor Connoisseur](http://www.vaporconnoisseur.com/about)
+- [Toyota Trucks](https://www.exploretoyotatrucks.com)
+- [David Yurman](https://www.davidyurman.com/products/mens/mens-bands.html)
+- [Alex Widner's portfolio](http://alex-widner.surge.sh/) I love this one as Alex used Plx for pretty much everything in a very unexpected and creative way.
+- [Ekaya Store](https://www.ekaya.in/)
+- [V!RTL's personal site](https://v1rtl.site)
+- [Antonio Cosentino personal website](https://antoniocosentino.com/) - he even mentions Plx in one of the [project articles](https://antoniocosentino.com/projects/ac-2020)
 
-
-<a id="simplx"></a>
 Group of [junior developers](https://github.com/Stanko/react-plx/issues/50) created a nifty app, where you can preview all of the effects Plx supports. Not just that, but you can customize the effects and it will generate code for you.
 
-* [Simplx](https://simplx-web.herokuapp.com)
+- [Simplx](https://simplx-web.herokuapp.com)
 
 ## Quick start
 
 Get it from npm
 
-```
-$ npm install --save react-plx
+```console
+npm install --save react-plx
 ```
 
 Import and use it in your React app.
@@ -85,6 +82,7 @@ class Example extends Component {
 ```
 
 ## Table of contents
+
 - [Plx - React Parallax component](#plx---react-parallax-component)
   - [Demo](#demo)
   - [Quick start](#quick-start)
@@ -108,10 +106,10 @@ Elements outside of viewport are not animated. This is done by using `getBoundin
 
 Still you need to avoid common "don't dos" when making a parallax page:
 
-* Avoid `background-size: cover`
-* Don’t animate massive images or dramatically resize them
-* Avoid animating 100 things at once
-* Only use properties that are cheap for browsers to animate - opacity and transform (translate, rotate, skew, scale)
+- Avoid `background-size: cover`
+- Don't animate massive images or dramatically resize them
+- Avoid animating 100 things at once
+- Only use properties that are cheap for browsers to animate - opacity and transform (translate, rotate, skew, scale)
 
 Read this [great article](https://medium.com/@dhg/parallax-done-right-82ced812e61c) to find out more (that is where I got my initial inspiration).
 
@@ -123,40 +121,40 @@ Read more about how it works in [this blog post](https://muffinman.io/plx-react-
 
 ## Props
 
-* **className** string
+- **className** string
 
   CSS class name (it will be applied along with `Plx` class name).
 
-* **style** object
+- **style** object
 
   CSS style object, please note that properties used in parallax will be overridden by component.
 
-* **tagName** string, default `div`
+- **tagName** string, default `div`
 
   HTML tag to be used for wrapper element.
 
-* **animateWhenNotInViewport** bool, default `false`
+- **animateWhenNotInViewport** bool, default `false`
 
   If set to true element will be animated even when it is not in the viewport.
   This is helpful with fixed elements in iOS due to [know bug with `getBoundingClientRect` in iOS](https://openradar.appspot.com/radar?id=6668472289329152).
 
-* **disabled** boolean
+- **disabled** boolean
 
   When `true` disabled animation completely.
 
-* **freeze** bool, default `false`
+- **freeze** bool, default `false`
 
   When `true` animation will be stopped at current state when condition is met.
 
-* **parallaxData** array of items (item structure described beneath), *required*
+- **parallaxData** array of items (item structure described beneath), *required*
 
   Main data, describes parallax segments.
 
-* **onPlxStart** function
+- **onPlxStart** function
 
   If set, the Plx component will call this function each time the animation state changes to active. (refer to [animation state CSS classes](#user-content-animation-state-css-classes))
 
-* **onPlxEnd** function
+- **onPlxEnd** function
 
   If set, the Plx component will call this function each time the animation state changes from active to another state. (refer to [animation state CSS classes](#user-content-animation-state-css-classes))
 
@@ -164,21 +162,22 @@ Any other props will be passed to the component (for example this is useful for 
 
 ### parallaxData
 
-* **start** number, string, [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement), *required*
+- **start** number, string, [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement), *required*
 
   Scroll position where parallax effect should start.
   Can one of the following:
 
-  * Number - value in pixels
-  * String
-    * Value in px, vh or % (`50px`, `50%`, `25vh`). Percentage is calculated out of max page scroll.
-    * CSS Selector (`.my-element`, `#some-id`) to be used with `document.querySelector`.
-    * `"self"` component's element will be used
-  * `HTMLElement`, given element will be used.
+  - Number - value in pixels
+  - String
+    - Value in px, vh or % (`50px`, `50%`, `25vh`). Percentage is calculated out of max page scroll.
+    - CSS Selector (`.my-element`, `#some-id`) to be used with `document.querySelector`.
+    - `"self"` component's element will be used
+  - `HTMLElement`, given element will be used.
 
   For element, selector and "self" animation will start when that element *enters* the viewport. You can use `startOffset` prop to offset start position.
 
   Example:
+
   ```js
   start: 100 // starts when scroll hits 100px
   start: 'self' // starts when plx's element enters the viewport
@@ -187,95 +186,99 @@ Any other props will be passed to the component (for example this is useful for 
 
   **PLEASE NOTE** that `parallaxData` should be sorted by `start` value!
 
-* **end** number, string, [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
+- **end** number, string, [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
 
   Scroll position where parallax effect should end.
   It has higher priority than `duration`.
   Can one of the following:
 
-  * Number - value in pixels
-  * String
-    * Value in px, vh or % (`50px`, `50%`, `25vh`). Percentage is calculated out of max page scroll.
-    * CSS Selector (`.my-element`, `#some-id`) to be used with `document.querySelector`.
-    * `"self"` component's element will be used
-  * `HTMLElement`, given element will be used.
+  - Number - value in pixels
+  - String
+    - Value in px, vh or % (`50px`, `50%`, `25vh`). Percentage is calculated out of max page scroll.
+    - CSS Selector (`.my-element`, `#some-id`) to be used with `document.querySelector`.
+    - `"self"` component's element will be used
+  - `HTMLElement`, given element will be used.
 
   For element, selector and "self" animation will end when that element *enters* the viewport. You can use `endOffset` prop to offset end position.
 
   Example:
+
   ```js
   end: 300 // ends when scroll hits 300px
   end: 'self' // ends when plx's element enters the viewport
   end: '.end-element' // ends when .end-element enters the viewport
   ```
 
-* **duration** number, string, [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
+- **duration** number, string, [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
 
   How long should effect last (it will finish
   when scroll position equals `start` + `duration`).
   It will be used if `end` is not defined.
   Can one of the following:
 
-  * Number - value in pixels
-  * String
-    * Value in px, vh or % (`50px`, `50%`, `25vh`). Percentage is calculated out of max page scroll.
-    * CSS Selector (`.my-element`, `#some-id`) to be used with `document.querySelector`.
-  * `HTMLElement`, given element will be used.
+  - Number - value in pixels
+  - String
+    - Value in px, vh or % (`50px`, `50%`, `25vh`). Percentage is calculated out of max page scroll.
+    - CSS Selector (`.my-element`, `#some-id`) to be used with `document.querySelector`.
+  - `HTMLElement`, given element will be used.
 
   For element and selector, element's height will be used as duration.
   Any other string will be considered CSS selector and it will be used with `document.querySelector`.
 
   Example:
+
   ```js
   duration: 300 // animation will last for 300px
   duration: '.duration-element' // animation will last for .duration-element's height
   ```
 
-* **startOffset** number, string
+- **startOffset** number, string
 
   Start offset, can be a number or string value in px, vh or % (`50px`, `50%`, `25vh`).
 
-* **endOffset** number, string
+- **endOffset** number, string
 
   End offset, can be a number or string value in px, vh or % (`50px`, `50%`, `25vh`).
 
-* **easing** string, function or array, default: 'linear'
+- **easing** string, function or array, default: 'linear'
 
   Easing function, you can pass the name (string) to choose one of the built-in functions.
   Built-in easing functions are:
 
-  * ease
-  * easeIn
-  * easeOut
-  * easeInOut
-  * easeInSine
-  * easeOutSine
-  * easeInOutSine
-  * easeInQuad
-  * easeOutQuad
-  * easeInOutQuad
-  * easeInCubic
-  * easeOutCubic
-  * easeInOutCubic
-  * easeInQuart
-  * easeOutQuart
-  * easeInOutQuart
-  * easeInQuint
-  * easeOutQuint
-  * easeInOutQuint
-  * easeInExpo
-  * easeOutExpo
-  * easeInOutExpo
-  * easeInCirc
-  * easeOutCirc
-  * easeInOutCirc
+  - ease
+  - easeIn
+  - easeOut
+  - easeInOut
+  - easeInSine
+  - easeOutSine
+  - easeInOutSine
+  - easeInQuad
+  - easeOutQuad
+  - easeInOutQuad
+  - easeInCubic
+  - easeOutCubic
+  - easeInOutCubic
+  - easeInQuart
+  - easeOutQuart
+  - easeInOutQuart
+  - easeInQuint
+  - easeOutQuint
+  - easeInOutQuint
+  - easeInExpo
+  - easeOutExpo
+  - easeInOutExpo
+  - easeInCirc
+  - easeOutCirc
+  - easeInOutCirc
 
   Cubic beziers are supported, pass an array to it with four points of your custom bezier (you can copy CSS beziers).
+
   ```js
   easing: [0.25, 0.1, 0.53, 3]
   ```
 
   You can even pass custom function which accepts one argument, which will be number from 0 to 1.
+
   ```js
   // Define your custom easing
   const myCustomEasing = (x) => {
@@ -287,17 +290,18 @@ Any other props will be passed to the component (for example this is useful for 
   // and then pass it to Plx
   easing: myCustomEasing
   ```
-* **name** string (without spaces)
+
+- **name** string (without spaces)
 
   Name used in [animation state CSS classes](#user-content-animation-state-css-classes)
 
-* **properties** array of items (item structure described beneath), *required*
+- **properties** array of items (item structure described beneath), *required*
 
   List of properties to be animated
 
 ### properties
 
-* **property** string, *required*
+- **property** string, *required*
 
   CSS property to be animated, works only on properties which accept numerical values (e.g. `opacity`, `height`...).
   For `transform` use function names instead (e.g. `translateX`, `scale`, `rotate`...).
@@ -305,62 +309,62 @@ Any other props will be passed to the component (for example this is useful for 
 
   Supported transform functions are:
 
-  * translateX
-  * translateY
-  * translateZ
-  * skew
-  * skewX
-  * skewY
-  * skewZ
-  * rotate
-  * rotateX
-  * rotateY
-  * rotateZ
-  * scale
-  * scaleX
-  * scaleY
-  * scaleZ
+  - translateX
+  - translateY
+  - translateZ
+  - skew
+  - skewX
+  - skewY
+  - skewZ
+  - rotate
+  - rotateX
+  - rotateY
+  - rotateZ
+  - scale
+  - scaleX
+  - scaleY
+  - scaleZ
 
   Supported colors are:
 
-  * backgroundColor
-  * borderBottomColor
-  * borderColor
-  * borderLeftColor
-  * borderRightColor
-  * borderTopColor
-  * color
-  * fill
-  * stroke
+  - backgroundColor
+  - borderBottomColor
+  - borderColor
+  - borderLeftColor
+  - borderRightColor
+  - borderTopColor
+  - color
+  - fill
+  - stroke
 
   Supported CSS filters are:
 
-  * blur
-  * brightness
-  * contrast
-  * grayscale
-  * hueRotate
-  * invert
-  * opacityFilter (as it shares the same name as CSS `opacity`)
-  * saturate
-  * sepia
+  - blur
+  - brightness
+  - contrast
+  - grayscale
+  - hueRotate
+  - invert
+  - opacityFilter (as it shares the same name as CSS `opacity`)
+  - saturate
+  - sepia
 
   To keep you parallax effects performant, I strongly advice not to use anything but opacity and transforms.
   Some filters should be cheap as well, with `blur` being the most expensive out of supported filters.
 
-* **startValue** number (or string for color), *required*
+- **startValue** number (or string for color), *required*
 
   Start value for the effect. Property will have this value when scroll position equals `parallaxData.start`.
   For colors supported formats are: `#123`, `#001122`, `rgb(0,0,255)` and `rgba(0,0,255,0.5)`.
 
-* **endValue** number (or string for color), *required*
+- **endValue** number (or string for color), *required*
 
   End value for the effect. Property will have this value when scroll position equals `parallaxData.end`.
   For colors supported formats are: `#123`, `#001122`, `rgb(0,0,255)` and `rgba(0,0,255,0.5)`.
 
   Between `parallaxData.start` and `parallaxData.end` value will transition relative to scroll position.
 
-* **unit** string
+- **unit** string
 
   CSS unit (e.g. `%`, `rem`, `em`...) to be applied to property value. By default component is using pixels and degrees for rotation and skew.
 
@@ -448,20 +452,20 @@ const exampleParallaxData = [
 Component will also apply CSS classes that match current animation state.
 Classes are:
 
-* `Plx--above`
+- `Plx--above`
   scroll position is above first start position (animation isn't started yet)
 
-* `Plx--below`
+- `Plx--below`
   scroll position is below last end position (animation is finished)
 
-* `Plx--active`
+- `Plx--active`
   scroll position is below first start and last end position (animation is in progress, including between states)
 
-* `Plx--in Plx--in-{n}`
+- `Plx--in Plx--in-{n}`
   scroll position is in `n`-th segment (`Plx--in-0`, `Plx--in-1`...).
   If `name` prop is passed (see above) it will be used instead of index (`Plx--in-superDuperName`).
 
-* `Plx--between Plx--between-{a}-and-{b}`
+- `Plx--between Plx--between-{a}-and-{b}`
   scroll position is between segments `a` and `b` (`Plx--between-0-and-1`, `Plx--between-1-and-2`...)
   If `name` prop is passed (see above) it will be used instead of index (`Plx--between-superDuperName-and-anotherName`).
 
@@ -472,7 +476,6 @@ Classes are:
 Modern browsers and IE10+.
 
 IE9 should work if you provide a polyfill for `requestAnimationFrame`. But I'm not supporting IE9.
-
 
 ## License
 

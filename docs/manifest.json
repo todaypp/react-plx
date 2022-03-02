@@ -1,0 +1,10 @@
+{
+  "short_name": "React Plx",
+  "name": "Plx - React parallax component",
+  "description": "Plx - React parallax component. Lightweight, yet powerful.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff"
+}

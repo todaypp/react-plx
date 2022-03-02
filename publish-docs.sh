@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build docs
-yarn build-docs
+yarn build:docs
 
 # Switch to gh-pages branch
 git checkout gh-pages

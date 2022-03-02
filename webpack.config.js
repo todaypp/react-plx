@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const EXAMPLE = process.env.EXAMPLE || 'false';
@@ -67,7 +67,7 @@ if (isProduction) {
         comments: false,
       },
     }),
-    new ExtractTextPlugin('demo.css')
+    new MiniCssExtractPlugin('demo.css')
   );
 
   if (isExample) {
@@ -84,7 +84,7 @@ if (isProduction) {
   rules.push(
     {
       test: /\.scss$/,
-      loader: ExtractTextPlugin.extract({
+      loader: MiniCssExtractPlugin.extract({
         fallback: 'style-loader',
         use: 'css-loader!sass-loader',
       }),

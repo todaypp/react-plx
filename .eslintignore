@@ -1,6 +1,7 @@
 *.log*
 .DS_STORE
 .cache
+.eslintcache
 .module-cache
 .parcel-cache
 _nogit
