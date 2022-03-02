@@ -1,6 +1,6 @@
 {
   "name": "@todaypp/react-plx",
-  "version": "1.3.17",
+  "version": "0.0.1",
   "description": "React parallax (on scroll effects) component. Lightweight, yet powerful.",
   "private": false,
   "license": "MIT",
@@ -43,7 +43,7 @@
     "postpublish": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags",
     "prepare": "yarn build",
     "publish": "npm publish",
-    "publish:all": "yarn publish && yarn publish:docs",
+    "publish:all": "yarn run publish && yarn publish:docs",
     "publish:docs": "sh publish-docs.sh",
     "start": "parcel docs/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
